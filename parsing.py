@@ -12,14 +12,14 @@ def get_html(url):
 def get_all_links(html):
     soup = BeautifulSoup (html, 'lxml')
     
-    tds =soup.find('table', id='currencies-all').find_all('td', class_='currency-name')
+    tds =soup.find('div', class_='news-list').find_all('div',class_ = 'news-line-item')
 
     links = []
 
     for td in tds:
         a = td.find('a').get('href')
-        link = 'https://coinmarketcap.com' + a 
-        links.append(link)
+        #link = 'https://coinmarketcap.com' + a 
+        links.append(a)
     return links
 '''
 
@@ -45,7 +45,7 @@ def write_csv(data):
 
 
 def main():
-    url ='https://coinmarketcap.com/all/views/all/'
+    url ='https://pythondigest.ru/feed/'
 
     all_links = get_all_links(get_html(url))
     for i in all_links:
