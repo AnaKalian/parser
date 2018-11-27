@@ -8,7 +8,6 @@ def get_html(url):
     r = requests.get (url)
     return r.text 
 
-
 def get_all_links(html):
     soup = BeautifulSoup (html, 'lxml')
     
@@ -47,9 +46,11 @@ def write_csv(data):
 def main():
     url ='https://pythondigest.ru/feed/'
 
+    newfile = open('myfile.txt','w')
     all_links = get_all_links(get_html(url))
-    for i in all_links:
-        print i
+    for i in all_links:        
+        newfile.write(i+'\n')
+    newfile.close()
 
 
 
