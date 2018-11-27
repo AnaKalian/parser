@@ -20,27 +20,6 @@ def get_all_links(html):
         #link = 'https://coinmarketcap.com' + a 
         links.append(a)
     return links
-'''
-
-def get_page_data(html):
-    soup = BeautifulSoup(html, 'lxsm')
-    try: 
-        name = soup.find('h1', class_='text-large').text.strip()
-    except:
-        name = ''
-    try:
-        price = soup.find('span',id='quote_price').text.strip()
-    except:
-        price = ''
-    data = {'name':name, 'price':price }
-
-    return data
-
-def write_csv(data):
-    with open('coinmarketcap.csv', 'a') as f:
-        writer = csv.writer(f)
-        writer.writerow (data['name'],data['price'])
-'''
 
 
 def main():
